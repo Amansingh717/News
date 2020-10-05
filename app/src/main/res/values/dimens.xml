@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--    fragment_top_headlines-->
+    <dimen name="rv_width_fragment_top_headlines">0dp</dimen>
+    <dimen name="rv_height_fragment_top_headlines">0dp</dimen>
+
+    <!--    font size-->
+    <dimen name="text_size_small">12sp</dimen>
+    <dimen name="text_size_medium">15sp</dimen>
+    <dimen name="text_size_large">18sp</dimen>f
+    <dimen name="text_size_x_large">21sp</dimen>
+    <dimen name="text_size_x_x_large">24sp</dimen>
+
+    <!--    fragment_top_headlines_item_detail_dialog-->
+    <dimen name="cv_corner_radius_fragment_top_headlines_item_detail_dialog">8dp</dimen>
+    <dimen name="cv_margin_fragment_top_headlines_item_detail_dialog">16dp</dimen>
+    <dimen name="fab_margin_fragment_top_headlines">16dp</dimen>
+    <dimen name="tv_content_width_fragment_top_headlines_item_detail_dialog">0dp</dimen>
+    <dimen name="tv_content_height_fragment_top_headlines_item_detail_dialog">0dp</dimen>
+    <dimen name="margin_top_tv_content_fragment_top_headlines_item_detail_dialog">32dp</dimen>
+    <dimen name="padding_start_tv_fragment_top_headlines_item_detail_dialog">8dp</dimen>
+    <dimen name="padding_end_tv_fragment_top_headlines_item_detail_dialog">8dp</dimen>
+    <dimen name="margin_bottom_tv_fragment_top_headlines_item_detail_dialog">8dp</dimen>
+    <dimen name="margin_bottom_tv_description_fragment_top_headlines_item_detail_dialog">8dp</dimen>
+    <dimen name="width_tv_description_fragment_top_headlines_item_detail_dialog">0dp</dimen>
+    <dimen name="width_tv_title_fragment_top_headlines_item_detail_dialog">0dp</dimen>
+    <dimen name="width_iv_fragment_top_headlines_item_detail_dialog">0dp</dimen>
+    <dimen name="height_iv_fragment_top_headlines_item_detail_dialog">0dp</dimen>
+
+    <!--  top_headlines_item  -->
+    <dimen name="margin_cv_top_headlines_item">16dp</dimen>
+    <dimen name="width_iv_top_headlines_item">0dp</dimen>
+    <dimen name="height_iv_top_headlines_item">0dp</dimen>
+    <dimen name="padding_start_tv_top_headlines_item">8dp</dimen>
+    <dimen name="padding_end_tv_top_headlines_item">8dp</dimen>
+    <dimen name="width_tv_title_top_headlines_item">0dp</dimen>
+    <dimen name="width_tv_description_top_headlines_item">0dp</dimen>
+    <dimen name="padding_bottom_tv_description_top_headlines_item">8dp</dimen>
+
+    <!--    activity_main-->
+    <dimen name="width_container_activity_main">0dp</dimen>
+    <dimen name="height_container_activity_main">0dp</dimen>
+
+</resources>

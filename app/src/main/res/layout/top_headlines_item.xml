@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="modelItem"
+            type="com.example.news.room.entities.Article" />
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cv_top_headlines_item"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/margin_cv_top_headlines_item"
+        app:cardBackgroundColor="@android:color/transparent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/image_view"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/height_iv_top_headlines_item"
+                android:scaleType="centerCrop"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintDimensionRatio="2:1"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="ContentDescription" />
+
+            <ImageView
+                android:id="@+id/image_view_gradient"
+                android:layout_width="@dimen/width_iv_top_headlines_item"
+                android:layout_height="@dimen/height_iv_top_headlines_item"
+                android:background="@drawable/gradient"
+                app:layout_constraintBottom_toBottomOf="@id/image_view"
+                app:layout_constraintEnd_toEndOf="@id/image_view"
+                app:layout_constraintStart_toStartOf="@id/image_view"
+                app:layout_constraintTop_toTopOf="@id/image_view"
+                tools:ignore="ContentDescription" />
+
+            <TextView
+                android:id="@+id/text_view_source"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:paddingStart="@dimen/padding_start_tv_top_headlines_item"
+                android:paddingEnd="@dimen/padding_end_tv_top_headlines_item"
+                android:text="@{modelItem.source.name}"
+                android:textColor="@color/color_white_100"
+                android:textSize="@dimen/text_size_small"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toTopOf="@id/text_view_title"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <TextView
+                android:id="@+id/text_view_title"
+                android:layout_width="@dimen/width_tv_title_top_headlines_item"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:fontFamily="sans-serif"
+                android:maxLines="1"
+                android:paddingStart="@dimen/padding_start_tv_top_headlines_item"
+                android:paddingEnd="@dimen/padding_end_tv_top_headlines_item"
+                android:text="@{modelItem.title}"
+                android:textColor="@color/color_white_100"
+                android:textSize="@dimen/text_size_x_large"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toTopOf="@id/text_view_description"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintWidth_percent="0.75" />
+
+            <TextView
+                android:id="@+id/text_view_description"
+                android:layout_width="@dimen/width_tv_description_top_headlines_item"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:maxLines="3"
+                android:paddingStart="@dimen/padding_start_tv_top_headlines_item"
+                android:paddingEnd="@dimen/padding_end_tv_top_headlines_item"
+                android:paddingBottom="@dimen/padding_bottom_tv_description_top_headlines_item"
+                android:text="@{modelItem.description}"
+                android:textColor="@color/color_white_80"
+                android:textSize="@dimen/text_size_small"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+</layout>
