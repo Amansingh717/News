@@ -13,21 +13,20 @@ abstract class TopHeadlinesDatabase : RoomDatabase() {
 
     companion object {
         @Volatile
-        private var instance: TopHeadlinesDatabase? = null
+        private var INSTANCE: TopHeadlinesDatabase? = null
 
         private const val DB_NAME = "topHeadlinesDb"
 
-        fun getInstance(context: Context): TopHeadlinesDatabase? {
-            if (instance == null) {
-                synchronized(TopHeadlinesDatabase::class.java) {
-                    instance = Room.databaseBuilder(
-                        context.applicationContext,
-                        TopHeadlinesDatabase::class.java,
-                        DB_NAME
-                    ).build()
-                }
+        fun getInstance(context: Context): TopHeadlinesDatabase {
+            return INSTANCE ?: synchronized(TopHeadlinesDatabase::class.java) {
+                val instance = Room.databaseBuilder(
+                    context.applicationContext,
+                    TopHeadlinesDatabase::class.java,
+                    DB_NAME
+                ).build()
+                INSTANCE = instance
+                instance
             }
-            return instance
         }
     }
 }

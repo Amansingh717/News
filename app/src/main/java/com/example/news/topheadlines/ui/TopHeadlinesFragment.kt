@@ -5,29 +5,22 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.news.NewsApplication
 import com.example.news.ParentFragment
 import com.example.news.R
 import com.example.news.databinding.FragmentTopHeadlinesBinding
 import com.example.news.extensions.makeDebugToast
 import com.example.news.extensions.navigateTo
-import com.example.news.room.dao.ArticleDao
-import com.example.news.room.database.TopHeadlinesDatabase
 import com.example.news.room.entities.Article
 import com.example.news.topheadlines.adapter.TopHeadlinesAdapter
 import com.example.news.topheadlines.vm.TopHeadlinesViewModel
+import com.example.news.topheadlines.vm.TopHeadlinesViewModelFactory
 import com.example.news.utility.ARG_SELECTED_ARTICLE
 
 class TopHeadlinesFragment : ParentFragment<TopHeadlinesViewModel>() {
 
     private lateinit var mBinding: FragmentTopHeadlinesBinding
     private lateinit var mTopHeadlinesAdapter: TopHeadlinesAdapter
-    private var dao: ArticleDao? = null
-
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        dao = TopHeadlinesDatabase.getInstance(requireContext())?.articleDao()
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -40,13 +33,14 @@ class TopHeadlinesFragment : ParentFragment<TopHeadlinesViewModel>() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        setupViewModel(TopHeadlinesViewModel::class.java)
-
+        setupViewModel(
+            TopHeadlinesViewModel::class.java,
+            TopHeadlinesViewModelFactory((requireActivity().application as NewsApplication).mainRepository)
+        )
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        getViewModel().setDao(dao)
         getViewModel().getCachedTopHeadlines()
         initViews()
         setupRecyclerView()

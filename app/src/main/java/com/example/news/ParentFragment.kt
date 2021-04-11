@@ -30,7 +30,7 @@ open class ParentFragment<VM : ParentViewModel> : Fragment() {
     /**
      * This method sets up view model for the fragment
      */
-    fun setupViewModel(viewModel: Class<VM>) {
-        mViewModel = ViewModelProvider(this).get(viewModel)
+    fun setupViewModel(viewModel: Class<VM>, viewModelFactory: ViewModelProvider.Factory) {
+        mViewModel = ViewModelProvider(this, viewModelFactory).get(viewModel)
     }
 }
